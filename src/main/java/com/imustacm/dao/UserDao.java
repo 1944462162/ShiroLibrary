@@ -2,16 +2,16 @@ package com.imustacm.dao;
 
 import com.imustacm.daomain.User;
 
+
 import java.util.List;
 
 /**
  * Author: wangJianBo
- * Date: 2019/9/10 20:00
+ * Date: 2019/9/8 21:20
  * Content:
  */
 public interface UserDao {
-
-    List<String> getRolesByName(String name);
-
     User getUserByUserName(String username);
+
+    List<String> getRoleByName(String username);
 }

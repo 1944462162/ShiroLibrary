@@ -5,6 +5,7 @@ import com.imustacm.daomain.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.sql.ResultSet;
@@ -13,45 +14,39 @@ import java.util.List;
 
 /**
  * Author: wangJianBo
- * Date: 2019/9/10 20:01
+ * Date: 2019/9/8 21:20
  * Content:
  */
-
 @Component
 public class UserDaoImpl implements UserDao {
 
+
     @Resource
     private JdbcTemplate jdbcTemplate;
+    public User getUserByUserName(String userName) {
 
-    // 通过用户名获取角色信息
-    public List<String> getRolesByName(String username) {
+        String sql = "Select username,password from users where username = ?";
 
-        String sql = "select role_name from roles where user_name =  ?";
-
-        return jdbcTemplate.query(sql, new String[]{username}, new RowMapper<String>() {
-            public String mapRow(ResultSet resultSet, int i) throws SQLException {
-                return resultSet.getString("role_name");
-            }
-        });
-    }
-
-
-    // 通过用户名获取用户
-    public User getUserByUserName(String username) {
-
-        String sql = "select username,password from user where username = ?";
-
-        List<User> list = jdbcTemplate.query(sql, new String[]{username}, new RowMapper<User>() {
+        List<User> list = jdbcTemplate.query(sql, new String[]{userName}, new RowMapper<User>() {
             public User mapRow(ResultSet resultSet, int i) throws SQLException {
                 User user = new User();
-                user.setName(resultSet.getString("username"));
-                user.setName(resultSet.getString("password"));
+                user.setUsername(resultSet.getString("username"));
+                user.setPassword(resultSet.getString("password"));
                 return user;
             }
         });
-        if(list.isEmpty()){
+        if(CollectionUtils.isEmpty(list)){
             return null;
         }
         return list.get(0);
+    }
+
+    public List<String> getRoleByName(String username) {
+        String sql = "Select role_name from roles where user_name = ?";
+         return  jdbcTemplate.query(sql, new String[]{username}, new RowMapper<String>() {
+            public String    mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getString("role_name");
+            }
+        });
     }
 }

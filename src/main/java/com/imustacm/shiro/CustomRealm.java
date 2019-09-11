@@ -48,7 +48,7 @@ public class CustomRealm extends AuthorizingRealm {
 
     private Set<String> getRoleByName(String username) {
 
-        List<String> list = userDao.getRolesByName(username);
+        List<String> list = userDao.getRoleByName(username);
         Set<String> user = new HashSet<String>(list);
         return user;
     }
@@ -63,11 +63,11 @@ public class CustomRealm extends AuthorizingRealm {
         if (password == null){
             return null;
         }
-        SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username,password,"admin");
+        SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(username,password,"CustomRealm");
 
-        // 将盐设置进去
-        simpleAuthenticationInfo.setCredentialsSalt(ByteSource.Util.bytes("Mark"));
-        return null;
+//        // 将盐设置进去
+//        simpleAuthenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(username));
+        return simpleAuthenticationInfo;
     }
 
     private String getPasswordByName(String username) {
