@@ -4,6 +4,7 @@ import com.imustacm.dao.UserDao;
 import com.imustacm.daomain.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.sql.ResultSet;
@@ -15,6 +16,8 @@ import java.util.List;
  * Date: 2019/9/10 20:01
  * Content:
  */
+
+@Component
 public class UserDaoImpl implements UserDao {
 
     @Resource

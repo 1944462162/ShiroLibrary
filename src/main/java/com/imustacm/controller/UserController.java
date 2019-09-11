@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class UserController {
-        @RequestMapping(value = "/sublogin.html", method = RequestMethod.POST)
+        @RequestMapping(value = "/sublogin", method = RequestMethod.POST)
         @ResponseBody
         public String sublogin(User user){
             Subject subject = SecurityUtils.getSubject();
