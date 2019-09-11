@@ -1,0 +1,39 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ShiroLibrary:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ShiroLibrary_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ShiroLibrary" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.4.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.1.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-lang:1.4.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cache:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-hash:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-cipher:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-ogdl:1.4.0" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-event:1.4.0" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ShiroLibrary/web/Web" />
+    </root>
+  </artifact>
+</component>
