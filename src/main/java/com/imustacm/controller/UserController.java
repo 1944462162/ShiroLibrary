@@ -41,7 +41,7 @@ public class UserController {
         @RequestMapping(value = "/adminShiro", method = RequestMethod.GET)
         @ResponseBody
         public String adminShiro(){
-            return "具有admin权限";
+            return "具有admin权限 ";
         }
 
         @RequiresRoles("literature_user")
