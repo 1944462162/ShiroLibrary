@@ -19,36 +19,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class UserController {
-        @RequestMapping(value = "/sublogin", method = RequestMethod.POST, produces="application/json;charset=utf-8")
-        @ResponseBody
-        public String sublogin(User user){
-            Subject subject = SecurityUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
-            try {
-                subject.login(token);
-            } catch (AuthenticationException e) {
-                return e.getMessage();
-            }
+    @RequestMapping(value = "/sublogin", produces="application/json;charset=utf-8")
 
-            if(subject.hasRole("admin"))
-            {
-                return "有admin权限";
-            }
-            return "没有admin权限";
+    public String sublogin(User user){
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+        try {
+            subject.login(token);
+        } catch (AuthenticationException e) {
+            return e.getMessage();
         }
 
-        @RequiresRoles("admin")
-        @RequestMapping(value = "/adminShiro", method = RequestMethod.GET)
-        @ResponseBody
-        public String adminShiro(){
-            return "具有admin权限 ";
-        }
+        return "welcome";
+    }
 
-        @RequiresRoles("literature_user")
-        @RequestMapping("/literature_user")
-        @ResponseBody
-        public String literature_userShiro(){
-            return "具有literature_user权限";
-        }
+
+    // admin权限
+    @RequiresPermissions("admin")
+    @RequestMapping(value = "/adminShiro", method = RequestMethod.GET)
+    public String adminShiro(){
+        return "admin";
+    }
+
+
+    //literature_user权限
+    @RequiresRoles("literature_user")
+    @RequestMapping(value = "/literatureUser", method = RequestMethod.GET)
+    public String literature_userShiro(){
+        return "literatureUser";
+    }
+
+    //electronics_user权限
+    @RequiresRoles("electronics_user")
+    @RequestMapping(value = "/electronicsUser", method = RequestMethod.GET)
+    public String electronics_user(){
+        return "electronicsUser";
+    }
 
 }
