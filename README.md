@@ -11,7 +11,9 @@
 ## 用到技术
 * Spring
 * SpringMVC
+* JdbcTemplate
 * Shiro
+* maven
 ## 数据库创建
 三张表分别是：users  roles  roles_permission<br/>
 > users<br/>
