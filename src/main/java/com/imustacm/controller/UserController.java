@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
     @RequestMapping(value = "/sublogin", produces="application/json;charset=utf-8")
-
+    @ResponseBody
     public String sublogin(User user){
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
@@ -30,6 +30,7 @@ public class UserController {
             return e.getMessage();
         }
 
+       subject.checkPermission("user:add");
         return "welcome";
     }
 

@@ -49,4 +49,14 @@ public class UserDaoImpl implements UserDao {
             }
         });
     }
+
+    public List<String> getPermisssionByName(String username) {
+        String sql = "select permission from roles_permission where role_name in (select role_name from roles where user_name = ?)";
+
+        return  jdbcTemplate.query(sql, new String[]{username}, new RowMapper<String>() {
+            public String mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getString("permission");
+            }
+        });
+    }
 }

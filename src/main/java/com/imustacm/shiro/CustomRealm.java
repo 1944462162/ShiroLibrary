@@ -40,9 +40,8 @@ public class CustomRealm extends AuthorizingRealm {
     }
 
     private Set<String> getPermissionsByName(String username) {
-        Set<String> permissions = new HashSet<String>();
-        permissions.add("user:add");
-        permissions.add("user:del");
+        List<String> list = userDao.getPermisssionByName(username);
+        Set<String> permissions = new HashSet<String>(list);
         return permissions;
     }
 
